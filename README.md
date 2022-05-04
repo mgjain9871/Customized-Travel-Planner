@@ -1,5 +1,8 @@
+<div align="center">
+
 ![banner](./result.gif)
 
+</div>
 
 Customized travel planner is a menu driven program to implement a travel planner that will cater the need of the customer to make a wise decision about the planned journey !! The program will run till the user finds an optimized travel plan according to his/her needs with customized options for people travelling and the weight of the luggage.
 
