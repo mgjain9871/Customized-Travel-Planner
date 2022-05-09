@@ -22,8 +22,8 @@ It is an optimization problem which will aid the users to find the budget friend
 
 - [Mitul Jain](https://github.com/mgjain9871)
 
-- [Devika Gupta](https://github.com/)
+- [Devika Gupta](https://github.com/devika6001)
 
-- [Aarushee Krishna](https://github.com/)
+- [Aarushee Krishna](https://github.com/the-artemis)
 
-- [Stuti Sharma](https://github.com/)
+- [Stuti Sharma](https://github.com/StutiSharma27)
