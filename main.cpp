@@ -1,24 +1,13 @@
-//#include <iostream>
-// #include <limits.h>
-// #include <string>
-// #include <math.h>
-// #include <cstdlib>
-// #include <vector>
-// #include <fstream>
-// #include <time.h>
-// #include <windows.h>
-
 #include <bits/stdc++.h>
 
 using namespace std;
 
-const int V = 248; // no of stations
+const int V = 248; 
 
 struct station_code
 {
     string station_name;
     int code;
-    string color;
 };
 struct station_code station[V];
 float graph[V][V];
@@ -45,14 +34,11 @@ void take_input();
 
 int main()
 {
-    // GRAPH construction
     int temp, n1, n2;
     float dis;
     ifstream fin;
     ifstream code;
-    ifstream color;
-    code.open("stationname.txt");
-    color.open("colorcodes.txt");
+    code.open("citiesname.txt");
     fin.open("distvalues.txt");
     for (int i = 0; i < 248; ++i)
     {
@@ -67,22 +53,20 @@ int main()
         {
             fin >> n2;
             fin >> dis;
-            // cout<<" "<<n2<<" "<<dis<<endl;
             graph[n1 - 1][n2 - 1] = dis;
         }
-        // cout<<endl;
     }
-    // filing structure info
+
     string line, col;
     for (int i = 0; i < V; ++i)
     {
-        getline(color, col);
-        station[i].color = col;
         getline(code, line);
         station[i].code = i;
         station[i].station_name = line;
     }
     take_input();
+    code.close();
+    fin.close();
 }
 
 int j;
@@ -107,7 +91,6 @@ void Path(float dis, int dest, int st, int inter)
     }
     vector<int>::iterator i = path.end();
     string str;
-    string color;
     if (!inter)
     {
         cout << "****** ROUTE FOUND ******";
@@ -118,35 +101,6 @@ void Path(float dis, int dest, int st, int inter)
     while (i != path.begin())
     {
         i--;
-        color = station[*i].color;
-        if (color == "BLUE")
-            system("color 09");
-        else if (color == "PINK")
-            system("color 0D");
-        else if (color == "YELLOW")
-            system("color 06");
-        else if (color == "AQUA")
-            system("color 03");
-        else if (color == "RED")
-            system("color 04");
-        else if (color == "GREEN")
-            system("color 02");
-        else if (color == "ORANGE")
-            system("color 0C");
-        else if (color == "MAGENTA")
-            system("color 05");
-        else if (color == "VOILET")
-            system("color 01");
-
-        if (i != i2)
-        {
-            if (station[*(i2)].color != station[*(i)].color)
-            {
-
-                cout << "{change from " << station[*i2].color << " to " << station[*i].color << "}";
-            }
-            i2--;
-        }
         str = station[*i].station_name;
         if (pos_x + 5 + str.size() < 106)
         {
@@ -199,7 +153,7 @@ void dijkstra(float graph[V][V], int src, int targ, int inter)
 {
     float distance[V];
     bool visited[V];
-    for (int i = 0; i < V; i++) // initilization
+    for (int i = 0; i < V; i++) 
         distance[i] = INT_MAX, visited[i] = false;
     distance[src] = 0;
     for (int count = 0; count < V - 1; count++)
@@ -219,7 +173,6 @@ void dijkstra(float graph[V][V], int src, int targ, int inter)
 void take_input()
 {
     char ch;
-    // scanf("%c",&ch);
     string startStation, endStation, line, col;
     int startcode, endcode;
     cout << "ENTER THE STARTING POINT:";
